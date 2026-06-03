@@ -1171,6 +1171,16 @@ footer {
               <span class="t-purple">◆ bedrock-chatbot</span>
               <span class="t-cmd"> [Cortex AI]</span>
             </div>
+            <div class="t-output">
+              <span class="t-purple">◆ bedrock-gatekeeper-proxy</span>
+              <span class="t-cmd"> [Governance]</span>
+            </div>
+            <div class="t-spacer"></div>
+            <div class="t-line">
+              <span class="t-prompt">›</span>
+              <span class="t-cmd">governance status --bedrock</span>
+            </div>
+            <div class="t-output t-success">✓ 100% access governed · zero direct invocations</div>
             <div class="t-spacer"></div>
             <div class="t-line">
               <span class="t-prompt">›</span>
@@ -1201,9 +1211,9 @@ footer {
         <div class="metric-context">AI Name Mapping System</div>
       </div>
       <div class="metric-card">
-        <span class="metric-number" data-target="80" data-suffix="%">0%</span>
-        <div class="metric-label">Process Efficiency Gain</div>
-        <div class="metric-context">Employee Data System</div>
+        <span class="metric-number" data-target="100" data-suffix="%">0%</span>
+        <div class="metric-label">Bedrock Access Governed</div>
+        <div class="metric-context">Gatekeeper Proxy System</div>
       </div>
     </div>
   </div>
@@ -1298,6 +1308,25 @@ footer {
         </div>
       </div>
 
+      <!-- Card 6 — Featured -->
+      <div class="sys-card featured">
+        <div class="sys-arrow">↗</div>
+        <div class="sys-number">06 / GOVERNANCE PLATFORM</div>
+        <div class="sys-icon cyan">🛡️</div>
+        <div class="sys-title">Bedrock Cost Governance & Forecaster</div>
+        <div class="sys-desc">Enterprise-grade Gatekeeper Proxy that enforces zero direct Bedrock access. All LLM calls route through a Lambda proxy that validates project ID, token allocation, and approval status against DynamoDB before any Bedrock invocation. Budget requests flow through a web portal → Project Manager approval → tag registration pipeline. Usage is ingested via EventBridge cron into S3 → Athena → QuickSight dashboards for cost baselines, token trends, and project-level forecasting. EC2-hosted Bedrock Pricing &amp; Models API powers cost projection at request time.</div>
+        <div class="sys-tags">
+          <span class="tag">Amazon Bedrock</span>
+          <span class="tag">Lambda Proxy</span>
+          <span class="tag blue">DynamoDB</span>
+          <span class="tag blue">EventBridge</span>
+          <span class="tag blue">S3 / Athena</span>
+          <span class="tag purple">QuickSight</span>
+          <span class="tag purple">Budget Governance</span>
+          <span class="tag">Tag-Based Access</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1341,8 +1370,8 @@ footer {
             <div class="ach-desc">Deployed fully automated ETL pipeline: S3 (STS assume-role) → EC2 processing → Snowflake via SQS triggers. Replaced all manual ingestion workflows.</div>
           </div>
           <div class="achievement">
-            <div class="ach-metric">80% ↓ Coordination Time</div>
-            <div class="ach-desc">Built custom employee data management system for Freewheel's BU — automated collection, manager approvals, and DB updates end-to-end.</div>
+            <div class="ach-metric">Bedrock Governance System</div>
+            <div class="ach-desc">Designed zero-trust Bedrock Gatekeeper Proxy — Lambda-based access enforcement, DynamoDB token validation, tag-based project registration, and QuickSight cost dashboards. No developer can invoke Bedrock without approval and budget allocation.</div>
           </div>
           <div class="achievement">
             <div class="ach-metric">Agentic AI Architecture</div>
