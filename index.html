@@ -439,9 +439,8 @@ section {
    IMPACT METRICS
    ============================================= */
 #metrics {
-  padding: 0 60px 100px;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 72px 40px 80px;
+  box-sizing: border-box;
 }
 
 .metrics-wrapper {
@@ -452,6 +451,10 @@ section {
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   overflow: hidden;
+  width: 860px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .metric-card {
@@ -1036,7 +1039,7 @@ footer {
   nav .nav-status { display: none; }
   section, #metrics, #systems, #experience, #stack, #contact { padding-left: 32px; padding-right: 32px; }
   .hero-inner { padding: 0 32px; gap: 40px; }
-  .metrics-wrapper { grid-template-columns: repeat(3, 1fr); }
+  .metrics-wrapper { grid-template-columns: repeat(3, 1fr); max-width: calc(100vw - 64px); }
   .systems-grid { grid-template-columns: repeat(2, 1fr); }
   .sys-card.featured { grid-column: span 1; }
   .stack-categories { grid-template-columns: repeat(2, 1fr); }
@@ -1051,7 +1054,7 @@ footer {
   .hero-inner { grid-template-columns: 1fr; padding: 0 20px; gap: 48px; }
   .hero-terminal { display: none; }
   section, #metrics, #systems, #experience, #stack, #contact { padding-left: 20px; padding-right: 20px; }
-  .metrics-wrapper { grid-template-columns: repeat(2, 1fr); }
+  .metrics-wrapper { grid-template-columns: repeat(2, 1fr); max-width: calc(100vw - 40px); }
   .systems-grid { grid-template-columns: 1fr; }
   .sys-card.featured { grid-column: span 1; }
   .stack-categories { grid-template-columns: 1fr; }
@@ -1135,9 +1138,9 @@ footer {
           <div class="terminal-body">
             <div class="t-line">
               <span class="t-prompt">›</span>
-              <span class="t-cmd">aws bedrock invoke-model --classify tickets</span>
+              <span class="t-cmd">slack deploy --trigger aws-workflow --env prod</span>
             </div>
-            <div class="t-output t-success">✓ LLM routing deployed · accuracy +34%</div>
+            <div class="t-output t-success">✓ Deployment automated · 40% manual effort reduced</div>
             <div class="t-spacer"></div>
             <div class="t-line">
               <span class="t-prompt">›</span>
@@ -1198,12 +1201,12 @@ footer {
   <!-- ============================
        IMPACT METRICS
        ============================ -->
-  <div id="metrics" style="padding-top: 0;">
+  <div id="metrics">
     <div class="metrics-wrapper reveal-group">
       <div class="metric-card">
         <span class="metric-number" data-target="40" data-suffix="%">0%</span>
         <div class="metric-label">Reduction in Manual Effort</div>
-        <div class="metric-context">AWS ML Platform</div>
+        <div class="metric-context">Deployment Automation</div>
       </div>
       <div class="metric-card">
         <span class="metric-number" data-target="12" data-prefix="10–">0 hrs</span>
@@ -1218,7 +1221,7 @@ footer {
     </div>
   </div>
 
-  <div class="divider" style="margin-top: 80px;"></div>
+  <div class="divider"></div>
 
   <!-- ============================
        FEATURED SYSTEMS
@@ -1237,17 +1240,18 @@ footer {
       <!-- Card 1 — Featured -->
       <div class="sys-card featured">
         <div class="sys-arrow">↗</div>
-        <div class="sys-number">01 / CORE PLATFORM</div>
-        <div class="sys-icon cyan">🧠</div>
-        <div class="sys-title">AWS ML Automation Platform</div>
-        <div class="sys-desc">Architected a Slack-integrated ML and workflow orchestration platform on AWS. Enabled data teams to launch ML projects at scale via EC2, Lambda, SNS, SQS, and EventBridge — reducing manual deployment effort by 40% through automated pipelines and real-time monitoring.</div>
+        <div class="sys-number">01 / WORKFLOW AUTOMATION</div>
+        <div class="sys-icon cyan">⚙️</div>
+        <div class="sys-title">Slack-Integrated AWS Deployment Automation</div>
+        <div class="sys-desc">Built a Slack-native command platform connected to AWS that lets data teams trigger deployments, manage workflows, and monitor pipelines entirely from Slack. Backed by Lambda, EC2, SNS, SQS, and EventBridge with a GitHub integration layer — eliminating manual deployment steps and reducing operational overhead by 40% through fully automated, event-driven execution.</div>
         <div class="sys-tags">
           <span class="tag">AWS Lambda</span>
           <span class="tag">EC2</span>
           <span class="tag">EventBridge</span>
           <span class="tag blue">SNS / SQS</span>
           <span class="tag blue">Slack API</span>
-          <span class="tag purple">ML Orchestration</span>
+          <span class="tag blue">GitHub Integration</span>
+          <span class="tag purple">Process Automation</span>
         </div>
       </div>
 
@@ -1359,7 +1363,7 @@ footer {
         <div class="exp-achievements">
           <div class="achievement">
             <div class="ach-metric">40% ↓ Manual Effort</div>
-            <div class="ach-desc">Architected Slack-integrated ML platform on AWS — EC2, Lambda, SNS, SQS, EventBridge — enabling data teams to self-serve ML deployments at scale with real-time monitoring.</div>
+            <div class="ach-desc">Built Slack-integrated deployment automation on AWS — Lambda, EC2, SNS, SQS, EventBridge with GitHub integration — letting teams trigger and monitor workflows directly from Slack without manual intervention.</div>
           </div>
           <div class="achievement">
             <div class="ach-metric">10–12 hrs/wk Saved</div>
