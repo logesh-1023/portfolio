@@ -1260,6 +1260,41 @@ footer {
   .divider { margin: 0 20px; }
   .systems-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* =============================================
+   NAV AVATAR
+   ============================================= */
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  flex-shrink: 0;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.9);
+}
+
+.nav-avatar:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.15);
+}
+
+.nav-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -1272,7 +1307,12 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">LOGESH SELVARAJ</div>
+  <div class="nav-logo-group">
+    <div class="nav-avatar">
+      <img src="data:image/jpeg;base64,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" alt="Logesh Selvaraj" />
+    </div>
+    <div class="nav-logo">LOGESH SELVARAJ</div>
+  </div>
   <div class="nav-status">
     <div class="status-dot"></div>
     <span>Available for AI Projects</span>
