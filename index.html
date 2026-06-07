@@ -659,10 +659,10 @@ section {
 
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-top: 52px;
-  max-width: 860px;
+  max-width: 1200px;
 }
 
 /* ── card shell ── */
@@ -836,7 +836,7 @@ section {
 }
 
 @media (max-width: 768px) {
-  .cert-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr; max-width: 100%; }
   .cert-card { height: auto; }
   .cert-title { white-space: normal; }
 }
@@ -1793,6 +1793,30 @@ footer {
         <div class="cert-divider"></div>
         <div class="cert-badge-area">
           <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="ade1d557-7959-4949-ada3-c8a9a7f99559" data-share-badge-host="https://www.credly.com"></div>
+          <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+        </div>
+      </div>
+
+      <!-- Cert 3: Serverless -->
+      <div class="cert-card">
+        <div class="cert-orb cyan"></div>
+        <svg class="cert-hex-bg" width="200" height="220" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Serverless Demonstrated</div>
+          <div class="cert-subtitle">Microcredential · Serverless</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6d2afea3-888e-4f30-87f4-33295a31760e" data-share-badge-host="https://www.credly.com"></div>
           <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
         </div>
       </div>
