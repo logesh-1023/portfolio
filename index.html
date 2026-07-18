@@ -646,7 +646,7 @@ section {
 .sys-card:hover .sys-arrow { opacity: 1; }
 
 /* =============================================
-   CERTIFICATIONS
+   CERTIFICATIONS — REDESIGNED
    ============================================= */
 #certifications {
   padding: 80px 60px 120px;
@@ -654,199 +654,237 @@ section {
   margin: 0 auto;
 }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  margin-top: 52px;
-  max-width: 760px;
+.cert-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  gap: 40px;
 }
 
+.cert-section-header .section-info { flex: 1; }
+
+.cert-count-badge {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 24px;
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+}
+
+.cert-count-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.cert-count-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── Grid: 3 columns on wide, 2 on mid, 1 on mobile ── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Individual card ── */
 .cert-card {
   position: relative;
   background: var(--bg-glass);
   border: 1px solid var(--border-card);
-  border-radius: 20px;
-  padding: 40px 36px;
+  border-radius: 18px;
   overflow: hidden;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: var(--transition);
   cursor: default;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Gradient shimmer overlay on hover */
 .cert-card::before {
   content: '';
   position: absolute; inset: 0;
   background: var(--grad-subtle);
   opacity: 0;
   transition: opacity 0.4s ease;
-  border-radius: 20px;
-}
-
-.cert-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0,229,255,0.28);
-  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,229,255,0.07);
-}
-
-.cert-card:hover::before { opacity: 1; }
-
-/* Animated top border */
-.cert-card::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--grad-primary);
-  border-radius: 20px 20px 0 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-}
-.cert-card:hover::after { transform: scaleX(1); }
-
-/* Corner glow orb */
-.cert-orb {
-  position: absolute;
-  top: -30px; right: -30px;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  filter: blur(40px);
-  pointer-events: none;
-  transition: var(--transition-slow);
-}
-.cert-orb.cyan { background: rgba(0,229,255,0.12); }
-.cert-orb.purple { background: rgba(170,0,255,0.12); }
-.cert-card:hover .cert-orb { opacity: 1.5; transform: scale(1.3); }
-
-/* Badge layout — vertical: meta top, credly embed centered below */
-.cert-issuer-row {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 10px;
-  position: relative; z-index: 1;
-}
-
-.cert-issuer-logo {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.cert-status {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 3px 10px;
-  background: rgba(0,255,136,0.07);
-  border: 1px solid rgba(0,255,136,0.2);
-  border-radius: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: #00ff88;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-left: auto;
-}
-
-.cert-status::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: #00ff88;
-  box-shadow: 0 0 6px #00ff88;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.cert-title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  margin-bottom: 6px;
-  position: relative; z-index: 1;
-}
-
-.cert-credly {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  position: relative; z-index: 1;
-  min-height: 270px;
-  align-items: center;
-}
-
-/* Placeholder when no image */
-.cert-subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--cyan);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 4px;
-  position: relative; z-index: 1;
-}
-
-.cert-issuer-row {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 10px;
-  position: relative; z-index: 1;
-}
-
-.cert-issuer-logo {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.cert-status {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 3px 10px;
-  background: rgba(0,255,136,0.07);
-  border: 1px solid rgba(0,255,136,0.2);
-  border-radius: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: #00ff88;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-left: auto;
-}
-
-.cert-status::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: #00ff88;
-  box-shadow: 0 0 6px #00ff88;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.cert-title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  margin-bottom: 6px;
-  position: relative; z-index: 1;
-}
-
-/* Hexagon decorative background pattern */
-.cert-hex-bg {
-  position: absolute;
-  bottom: -20px; right: -20px;
-  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
 
-@media (max-width: 768px) {
+.cert-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0,229,255,0.25);
+  box-shadow: 0 28px 72px rgba(0,0,0,0.5), 0 0 50px rgba(0,229,255,0.06);
+}
+.cert-card:hover::before { opacity: 1; }
+
+/* Animated left accent bar */
+.cert-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: 3px;
+  background: var(--grad-primary);
+  border-radius: 18px 0 0 18px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+.cert-card:hover::after { transform: scaleY(1); }
+
+/* Corner glow orb */
+.cert-orb {
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+  transition: var(--transition-slow);
+  z-index: 0;
+}
+.cert-orb.cyan { background: rgba(0,229,255,0.14); }
+.cert-orb.purple { background: rgba(170,0,255,0.14); }
+.cert-card:hover .cert-orb { transform: scale(1.3); }
+
+/* Hex decoration */
+.cert-hex-bg {
+  position: absolute;
+  bottom: -10px; right: -10px;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+.cert-card:hover .cert-hex-bg { opacity: 0.06; }
+
+/* ── Meta block (top section of card) ── */
+.cert-meta {
+  position: relative;
+  z-index: 1;
+  padding: 24px 24px 0;
+}
+
+.cert-issuer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cert-issuer-logo {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.cert-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  background: rgba(0,255,136,0.07);
+  border: 1px solid rgba(0,255,136,0.18);
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+  color: #00ff88;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.cert-status::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 6px #00ff88;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.cert-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.cert-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* ── Divider between meta and badge ── */
+.cert-divider {
+  position: relative;
+  z-index: 1;
+  height: 1px;
+  margin: 18px 24px;
+  background: var(--border-subtle);
+}
+
+/* ── Badge area (Credly embed) ── */
+.cert-badge-area {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+  flex: 1;
+}
+
+/* Subtle glow ring behind the badge */
+.cert-badge-area::before {
+  content: '';
+  position: absolute;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Scale credly iframe to fit card nicely */
+.cert-badge-area [data-iframe-width] {
+  transform-origin: top center;
+}
+
+@media (max-width: 1100px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  #certifications { padding: 60px 24px 80px; }
   .cert-grid { grid-template-columns: 1fr; }
+  .cert-section-header { flex-direction: column; align-items: flex-start; }
 }
 
 /* =============================================
@@ -1895,16 +1933,25 @@ footer {
        CERTIFICATIONS
        ============================ -->
   <section id="certifications">
-    <div class="section-label">Credentials</div>
-    <h2 class="section-title">AWS Certifications</h2>
-    <p class="section-subtitle">Verified expertise in cloud architecture and applied AI — earned through hands-on production experience, not just exams.</p>
+
+    <div class="cert-section-header">
+      <div class="section-info">
+        <div class="section-label">Credentials</div>
+        <h2 class="section-title">AWS Certifications</h2>
+        <p class="section-subtitle">Verified expertise in cloud architecture and applied AI — earned through hands-on production experience, not just exams.</p>
+      </div>
+      <div class="cert-count-badge">
+        <span class="cert-count-num">5</span>
+        <span class="cert-count-label">Active Badges</span>
+      </div>
+    </div>
 
     <div class="cert-grid reveal-group">
 
       <!-- Cert 1: Cloud Practitioner -->
       <div class="cert-card">
         <div class="cert-orb cyan"></div>
-        <svg class="cert-hex-bg" width="200" height="220" viewBox="0 0 200 220" fill="none">
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
           <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
@@ -1926,7 +1973,7 @@ footer {
       <!-- Cert 2: Agentic AI -->
       <div class="cert-card">
         <div class="cert-orb purple"></div>
-        <svg class="cert-hex-bg" width="200" height="220" viewBox="0 0 200 220" fill="none">
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
           <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
@@ -1948,7 +1995,7 @@ footer {
       <!-- Cert 3: Application Networking -->
       <div class="cert-card">
         <div class="cert-orb purple"></div>
-        <svg class="cert-hex-bg" width="200" height="220" viewBox="0 0 200 220" fill="none">
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
           <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
@@ -1970,7 +2017,7 @@ footer {
       <!-- Cert 4: Serverless -->
       <div class="cert-card">
         <div class="cert-orb cyan"></div>
-        <svg class="cert-hex-bg" width="200" height="220" viewBox="0 0 200 220" fill="none">
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
           <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
@@ -1992,7 +2039,7 @@ footer {
       <!-- Cert 5: Incident Response -->
       <div class="cert-card">
         <div class="cert-orb cyan"></div>
-        <svg class="cert-hex-bg" width="200" height="220" viewBox="0 0 200 220" fill="none">
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
           <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
           <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
