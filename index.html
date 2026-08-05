@@ -700,6 +700,7 @@ section {
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
   gap: 20px;
 }
 
@@ -709,11 +710,21 @@ section {
   background: var(--bg-glass);
   border: 1px solid var(--border-card);
   border-radius: 18px;
-  overflow: hidden;
+  overflow: visible;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: var(--transition);
   cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inner wrapper clips decorative bleed without hiding card children */
+.cert-card-inner {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -1399,12 +1410,16 @@ footer {
   transform: translateY(16px);
   transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.reveal-group.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0.05s; }
-.reveal-group.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.13s; }
-.reveal-group.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.21s; }
-.reveal-group.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.29s; }
-.reveal-group.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.37s; }
-.reveal-group.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: 0.45s; }
+.reveal-group.visible > *:nth-child(1)  { opacity:1; transform:none; transition-delay: 0.05s; }
+.reveal-group.visible > *:nth-child(2)  { opacity:1; transform:none; transition-delay: 0.13s; }
+.reveal-group.visible > *:nth-child(3)  { opacity:1; transform:none; transition-delay: 0.21s; }
+.reveal-group.visible > *:nth-child(4)  { opacity:1; transform:none; transition-delay: 0.29s; }
+.reveal-group.visible > *:nth-child(5)  { opacity:1; transform:none; transition-delay: 0.37s; }
+.reveal-group.visible > *:nth-child(6)  { opacity:1; transform:none; transition-delay: 0.45s; }
+.reveal-group.visible > *:nth-child(7)  { opacity:1; transform:none; transition-delay: 0.53s; }
+.reveal-group.visible > *:nth-child(8)  { opacity:1; transform:none; transition-delay: 0.61s; }
+.reveal-group.visible > *:nth-child(9)  { opacity:1; transform:none; transition-delay: 0.69s; }
+.reveal-group.visible > *:nth-child(10) { opacity:1; transform:none; transition-delay: 0.77s; }
 
 /* =============================================
    COUNTER ANIMATION
@@ -1941,7 +1956,7 @@ footer {
         <p class="section-subtitle">Verified expertise in cloud architecture and applied AI — earned through hands-on production experience, not just exams.</p>
       </div>
       <div class="cert-count-badge">
-        <span class="cert-count-num">5</span>
+        <span class="cert-count-num">8</span>
         <span class="cert-count-label">Active Badges</span>
       </div>
     </div>
@@ -2055,6 +2070,72 @@ footer {
         <div class="cert-divider"></div>
         <div class="cert-badge-area">
           <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="a6641e19-8381-4102-8f53-5957f6b7672e" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+      <!-- Cert 6: AI Practitioner -->
+      <div class="cert-card">
+        <div class="cert-orb cyan"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Certified AI Practitioner</div>
+          <div class="cert-subtitle">Foundational · Artificial Intelligence</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8bc21ec9-17cb-4d65-a58d-f7d1716546da" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+      <!-- Cert 7: Data Lakehouse -->
+      <div class="cert-card">
+        <div class="cert-orb purple"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Data Lakehouse Demonstrated</div>
+          <div class="cert-subtitle">Microcredential · Data Engineering</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="1779d848-9b8e-46c8-9f41-a5ffe5f45d3e" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+      <!-- Cert 8: Data Visualization -->
+      <div class="cert-card">
+        <div class="cert-orb purple"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Data Visualization Demonstrated</div>
+          <div class="cert-subtitle">Microcredential · Data & Analytics</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5ec6c340-b049-4527-b4b4-510f3912c0fc" data-share-badge-host="https://www.credly.com"></div>
         </div>
       </div>
 
