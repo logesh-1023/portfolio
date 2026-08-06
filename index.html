@@ -888,6 +888,51 @@ section {
   transform-origin: top center;
 }
 
+/* ── Group labels between cert rows ── */
+.cert-group-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.cert-group-tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.cert-group-tag--foundational {
+  background: rgba(0,229,255,0.08);
+  border: 1px solid rgba(0,229,255,0.22);
+  color: var(--cyan);
+}
+
+.cert-group-tag--micro {
+  background: rgba(170,0,255,0.08);
+  border: 1px solid rgba(170,0,255,0.22);
+  color: #cc66ff;
+}
+
+.cert-group-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.cert-group-count {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
 @media (max-width: 1100px) {
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1956,14 +2001,21 @@ footer {
         <p class="section-subtitle">Verified expertise in cloud architecture and applied AI — earned through hands-on production experience, not just exams.</p>
       </div>
       <div class="cert-count-badge">
-        <span class="cert-count-num">8</span>
+        <span class="cert-count-num">9</span>
         <span class="cert-count-label">Active Badges</span>
       </div>
     </div>
 
+    <!-- ── GROUP LABEL: Foundational ── -->
+    <div class="cert-group-label">
+      <span class="cert-group-tag cert-group-tag--foundational">Foundational</span>
+      <div class="cert-group-line"></div>
+      <span class="cert-group-count">2 certs</span>
+    </div>
+
     <div class="cert-grid reveal-group">
 
-      <!-- Cert 1: Cloud Practitioner -->
+      <!-- 1: Cloud Practitioner -->
       <div class="cert-card">
         <div class="cert-orb cyan"></div>
         <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
@@ -1985,95 +2037,7 @@ footer {
         </div>
       </div>
 
-      <!-- Cert 2: Agentic AI -->
-      <div class="cert-card">
-        <div class="cert-orb purple"></div>
-        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
-          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
-        </svg>
-        <div class="cert-meta">
-          <div class="cert-issuer-row">
-            <div class="cert-issuer-logo">Amazon Web Services</div>
-            <div class="cert-status">Certified</div>
-          </div>
-          <div class="cert-title">AWS Agentic AI Demonstrated</div>
-          <div class="cert-subtitle">Microcredential · Generative AI</div>
-        </div>
-        <div class="cert-divider"></div>
-        <div class="cert-badge-area">
-          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="ade1d557-7959-4949-ada3-c8a9a7f99559" data-share-badge-host="https://www.credly.com"></div>
-        </div>
-      </div>
-
-      <!-- Cert 3: Application Networking -->
-      <div class="cert-card">
-        <div class="cert-orb purple"></div>
-        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
-          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
-        </svg>
-        <div class="cert-meta">
-          <div class="cert-issuer-row">
-            <div class="cert-issuer-logo">Amazon Web Services</div>
-            <div class="cert-status">Certified</div>
-          </div>
-          <div class="cert-title">AWS Application Networking</div>
-          <div class="cert-subtitle">Microcredential · Demonstrated</div>
-        </div>
-        <div class="cert-divider"></div>
-        <div class="cert-badge-area">
-          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="873a80bc-5c2d-4806-bd6d-9170a81096b8" data-share-badge-host="https://www.credly.com"></div>
-        </div>
-      </div>
-
-      <!-- Cert 4: Serverless -->
-      <div class="cert-card">
-        <div class="cert-orb cyan"></div>
-        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
-          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
-        </svg>
-        <div class="cert-meta">
-          <div class="cert-issuer-row">
-            <div class="cert-issuer-logo">Amazon Web Services</div>
-            <div class="cert-status">Certified</div>
-          </div>
-          <div class="cert-title">AWS Serverless Demonstrated</div>
-          <div class="cert-subtitle">Microcredential · Serverless</div>
-        </div>
-        <div class="cert-divider"></div>
-        <div class="cert-badge-area">
-          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6d2afea3-888e-4f30-87f4-33295a31760e" data-share-badge-host="https://www.credly.com"></div>
-        </div>
-      </div>
-
-      <!-- Cert 5: Incident Response -->
-      <div class="cert-card">
-        <div class="cert-orb cyan"></div>
-        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
-          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
-          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
-        </svg>
-        <div class="cert-meta">
-          <div class="cert-issuer-row">
-            <div class="cert-issuer-logo">Amazon Web Services</div>
-            <div class="cert-status">Certified</div>
-          </div>
-          <div class="cert-title">AWS Incident Response</div>
-          <div class="cert-subtitle">Microcredential · Demonstrated</div>
-        </div>
-        <div class="cert-divider"></div>
-        <div class="cert-badge-area">
-          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="a6641e19-8381-4102-8f53-5957f6b7672e" data-share-badge-host="https://www.credly.com"></div>
-        </div>
-      </div>
-
-      <!-- Cert 6: AI Practitioner -->
+      <!-- 2: AI Practitioner -->
       <div class="cert-card">
         <div class="cert-orb cyan"></div>
         <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
@@ -2095,7 +2059,18 @@ footer {
         </div>
       </div>
 
-      <!-- Cert 7: Data Lakehouse -->
+    </div>
+
+    <!-- ── GROUP LABEL: Microcredential — Data ── -->
+    <div class="cert-group-label" style="margin-top: 48px;">
+      <span class="cert-group-tag cert-group-tag--micro">Microcredential · Data</span>
+      <div class="cert-group-line"></div>
+      <span class="cert-group-count">3 certs</span>
+    </div>
+
+    <div class="cert-grid reveal-group">
+
+      <!-- 3: Data Lakehouse -->
       <div class="cert-card">
         <div class="cert-orb purple"></div>
         <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
@@ -2117,7 +2092,7 @@ footer {
         </div>
       </div>
 
-      <!-- Cert 8: Data Visualization -->
+      <!-- 4: Data Visualization -->
       <div class="cert-card">
         <div class="cert-orb purple"></div>
         <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
@@ -2136,6 +2111,127 @@ footer {
         <div class="cert-divider"></div>
         <div class="cert-badge-area">
           <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5ec6c340-b049-4527-b4b4-510f3912c0fc" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+      <!-- 5: Data Streaming -->
+      <div class="cert-card">
+        <div class="cert-orb purple"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Data Streaming Demonstrated</div>
+          <div class="cert-subtitle">Microcredential · Data & Streaming</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="b51e9442-03f4-429a-ae79-e54326a361a5" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── GROUP LABEL: Microcredential — Serverless & Infrastructure ── -->
+    <div class="cert-group-label" style="margin-top: 48px;">
+      <span class="cert-group-tag cert-group-tag--micro">Microcredential · Serverless &amp; Infrastructure</span>
+      <div class="cert-group-line"></div>
+      <span class="cert-group-count">4 certs</span>
+    </div>
+
+    <div class="cert-grid reveal-group">
+
+      <!-- 6: Serverless -->
+      <div class="cert-card">
+        <div class="cert-orb cyan"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Serverless Demonstrated</div>
+          <div class="cert-subtitle">Microcredential · Serverless</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6d2afea3-888e-4f30-87f4-33295a31760e" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+      <!-- 7: Agentic AI -->
+      <div class="cert-card">
+        <div class="cert-orb purple"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Agentic AI Demonstrated</div>
+          <div class="cert-subtitle">Microcredential · Generative AI</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="ade1d557-7959-4949-ada3-c8a9a7f99559" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+      <!-- 8: Application Networking -->
+      <div class="cert-card">
+        <div class="cert-orb purple"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Application Networking</div>
+          <div class="cert-subtitle">Microcredential · Networking</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="873a80bc-5c2d-4806-bd6d-9170a81096b8" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+      </div>
+
+      <!-- 9: Incident Response -->
+      <div class="cert-card">
+        <div class="cert-orb cyan"></div>
+        <svg class="cert-hex-bg" width="160" height="180" viewBox="0 0 200 220" fill="none">
+          <path d="M100 10 L185 57.5 L185 152.5 L100 200 L15 152.5 L15 57.5 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 35 L163 70 L163 140 L100 175 L37 140 L37 70 Z" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M100 60 L141 83 L141 128 L100 151 L59 128 L59 83 Z" stroke="white" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="cert-meta">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-logo">Amazon Web Services</div>
+            <div class="cert-status">Certified</div>
+          </div>
+          <div class="cert-title">AWS Incident Response</div>
+          <div class="cert-subtitle">Microcredential · Security & Ops</div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-badge-area">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="a6641e19-8381-4102-8f53-5957f6b7672e" data-share-badge-host="https://www.credly.com"></div>
         </div>
       </div>
 
