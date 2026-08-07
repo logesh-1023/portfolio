@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 <style>
 /* =============================================
-   ROOT VARIABLES & RESET
+   ROOT VARIABLES — DARK MODE (default)
    ============================================= */
 :root {
   --bg-void: #020408;
   --bg-deep: #040810;
-  --bg-card: rgba(8, 16, 32, 0.7);
-  --bg-glass: rgba(14, 28, 55, 0.45);
-  --bg-glass2: rgba(6, 14, 30, 0.6);
+  --bg-card: rgba(8, 16, 32, 0.75);
+  --bg-glass: rgba(14, 28, 55, 0.50);
+  --bg-glass2: rgba(6, 14, 30, 0.65);
 
   --cyan: #00e5ff;
   --cyan-dim: rgba(0, 229, 255, 0.15);
@@ -35,13 +35,13 @@
                radial-gradient(ellipse 50% 40% at 80% 20%, rgba(0,229,255,0.10) 0%, transparent 60%),
                radial-gradient(ellipse 40% 30% at 10% 30%, rgba(170,0,255,0.10) 0%, transparent 60%);
 
-  --text-primary: #f0f4ff;
-  --text-secondary: #8899bb;
-  --text-muted: #445577;
+  --text-primary: #e8eeff;
+  --text-secondary: #94a8cc;
+  --text-muted: #556688;
   --text-accent: #00e5ff;
 
   --border-subtle: rgba(0, 229, 255, 0.08);
-  --border-card: rgba(0, 229, 255, 0.12);
+  --border-card: rgba(0, 229, 255, 0.14);
   --border-glow: rgba(0, 229, 255, 0.3);
 
   --font-display: 'Syne', sans-serif;
@@ -50,6 +50,55 @@
 
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Theme toggle icon */
+  --theme-icon: '☀️';
+}
+
+/* =============================================
+   LIGHT MODE — applied via [data-theme="light"]
+   ============================================= */
+[data-theme="light"] {
+  --bg-void: #f0f4fc;
+  --bg-deep: #e8eef8;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.70);
+  --bg-glass2: rgba(240, 244, 252, 0.80);
+
+  --cyan: #0077cc;
+  --cyan-dim: rgba(0, 119, 204, 0.10);
+  --cyan-glow: rgba(0, 119, 204, 0.25);
+  --blue: #1a56db;
+  --blue-dim: rgba(26, 86, 219, 0.10);
+  --purple: #7c3aed;
+  --purple-dim: rgba(124, 58, 237, 0.10);
+  --violet: #6d28d9;
+  --teal: #0891b2;
+
+  --grad-primary: linear-gradient(135deg, #0077cc 0%, #1a56db 50%, #7c3aed 100%);
+  --grad-subtle: linear-gradient(135deg, rgba(0,119,204,0.06) 0%, rgba(26,86,219,0.05) 50%, rgba(124,58,237,0.06) 100%);
+  --grad-card: linear-gradient(145deg, rgba(0,119,204,0.04) 0%, rgba(26,86,219,0.03) 100%);
+  --grad-hero: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26,86,219,0.10) 0%, transparent 70%),
+               radial-gradient(ellipse 50% 40% at 80% 20%, rgba(0,119,204,0.07) 0%, transparent 60%),
+               radial-gradient(ellipse 40% 30% at 10% 30%, rgba(124,58,237,0.07) 0%, transparent 60%);
+
+  --text-primary: #0f172a;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-accent: #0077cc;
+
+  --border-subtle: rgba(0, 119, 204, 0.12);
+  --border-card: rgba(0, 119, 204, 0.18);
+  --border-glow: rgba(0, 119, 204, 0.35);
+
+  --theme-icon: '🌙';
+}
+
+/* Smooth theme transitions — exclude animation-dependent elements */
+*:not(.t-cursor):not(.status-dot):not(.orb):not(.cert-status::before),
+*:not(.t-cursor):not(.status-dot):not(.orb)::before,
+*:not(.t-cursor):not(.status-dot):not(.orb)::after {
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,6 +113,131 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Light mode background */
+[data-theme="light"] body,
+body[data-theme="light"] {
+  background: var(--bg-void);
+}
+
+[data-theme="light"] .grid-bg {
+  background-image:
+    linear-gradient(rgba(0,119,204,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,119,204,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+[data-theme="light"] nav {
+  background: rgba(240, 244, 252, 0.85) !important;
+  border-bottom-color: rgba(0,119,204,0.14);
+}
+
+[data-theme="light"] .orb-1 { background: radial-gradient(circle, rgba(26,86,219,0.08) 0%, transparent 70%); }
+[data-theme="light"] .orb-2 { background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%); }
+[data-theme="light"] .orb-3 { background: radial-gradient(circle, rgba(0,119,204,0.05) 0%, transparent 70%); }
+
+/* ── Terminal: always dark, even in light mode ── */
+[data-theme="light"] .terminal-card {
+  background: #1a2035;
+  border-color: rgba(0,229,255,0.18);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,229,255,0.06);
+}
+[data-theme="light"] .terminal-header {
+  background: rgba(0,0,0,0.25);
+  border-bottom-color: rgba(255,255,255,0.07);
+}
+[data-theme="light"] .terminal-title { color: #6b7f9e; }
+[data-theme="light"] .terminal-body { background: transparent; }
+/* Terminal text stays light-on-dark always */
+[data-theme="light"] .t-prompt { color: #00e5ff; opacity: 0.85; }
+[data-theme="light"] .t-cmd { color: #c8d8f0; }
+[data-theme="light"] .t-output { color: #7a90b0; }
+[data-theme="light"] .t-success { color: #00e599; }
+[data-theme="light"] .t-highlight { color: #00e5ff; }
+[data-theme="light"] .t-purple { color: #bb86fc; }
+[data-theme="light"] .t-yellow { color: #ffd54f; }
+
+/* ── Metric cards ── */
+[data-theme="light"] .metric-card { background: rgba(255,255,255,0.80); }
+[data-theme="light"] .metric-card:hover { background: rgba(255,255,255,0.96); }
+
+/* ── System cards ── */
+[data-theme="light"] .sys-icon.cyan  { background: rgba(0,119,204,0.08);  border-color: rgba(0,119,204,0.20); }
+[data-theme="light"] .sys-icon.blue  { background: rgba(26,86,219,0.08);  border-color: rgba(26,86,219,0.20); }
+[data-theme="light"] .sys-icon.purple{ background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.20); }
+[data-theme="light"] .sys-icon.violet{ background: rgba(109,40,217,0.08); border-color: rgba(109,40,217,0.20); }
+[data-theme="light"] .sys-icon.teal  { background: rgba(8,145,178,0.08);  border-color: rgba(8,145,178,0.20); }
+
+/* ── Tags ── */
+[data-theme="light"] .tag { background: rgba(0,119,204,0.07); border-color: rgba(0,119,204,0.18); color: #0055a0; }
+[data-theme="light"] .tag.blue   { background: rgba(26,86,219,0.07);  border-color: rgba(26,86,219,0.18);  color: #1a44aa; }
+[data-theme="light"] .tag.purple { background: rgba(124,58,237,0.07); border-color: rgba(124,58,237,0.18); color: #5b21b6; }
+
+/* ── Tech chips ── */
+[data-theme="light"] .tech-chip { background: rgba(0,119,204,0.07); border-color: rgba(0,119,204,0.15); color: #1a44aa; }
+
+/* ── Cert group tags ── */
+[data-theme="light"] .cert-group-tag--foundational { background: rgba(0,119,204,0.08); border-color: rgba(0,119,204,0.22); color: #005fa3; }
+[data-theme="light"] .cert-group-tag--micro        { background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.22); color: #5b21b6; }
+
+/* ── Active/certified status pill ── */
+[data-theme="light"] .cert-status { background: rgba(5,150,70,0.07); border-color: rgba(5,150,70,0.22); color: #047857; }
+[data-theme="light"] .cert-status::before { background: #059669; box-shadow: 0 0 6px #059669; }
+
+/* ── Experience achievements ── */
+[data-theme="light"] .ach-metric { color: var(--cyan); }
+
+/* ── Education tags ── */
+[data-theme="light"] .edu-tag { background: rgba(0,119,204,0.07); border-color: rgba(0,119,204,0.16); color: #0055a0; }
+
+/* ── Stack / skill badges ── */
+[data-theme="light"] .skill-bar-fill { background: var(--grad-primary); }
+[data-theme="light"] .stack-item { background: rgba(255,255,255,0.85); border-color: rgba(0,119,204,0.15); }
+[data-theme="light"] .stack-item:hover { border-color: rgba(0,119,204,0.35); }
+
+/* ── Divider lines ── */
+[data-theme="light"] .divider { background: rgba(0,119,204,0.12); }
+
+/* ── Contact block ── */
+[data-theme="light"] .contact-wrapper { background: rgba(255,255,255,0.80); }
+
+/* ── Footer ── */
+[data-theme="light"] footer { border-top-color: rgba(0,119,204,0.12); color: var(--text-secondary); }
+
+/* ── Section labels ── */
+[data-theme="light"] .section-label { color: var(--cyan); }
+[data-theme="light"] .section-label::before { background: var(--cyan); }
+
+/* ── Hero section ── */
+[data-theme="light"] .hero-descriptor { color: var(--text-secondary); }
+
+/* ── Buttons ── */
+[data-theme="light"] .btn-primary {
+  background: var(--grad-primary);
+  color: #ffffff;
+}
+[data-theme="light"] .btn-ghost {
+  border-color: rgba(0,119,204,0.35);
+  color: var(--text-primary);
+}
+[data-theme="light"] .btn-ghost:hover { background: rgba(0,119,204,0.08); }
+
+/* ── Code / mono spans ── */
+[data-theme="light"] .hero-code,
+[data-theme="light"] code {
+  background: rgba(0,119,204,0.07);
+  color: #0055a0;
+  border-color: rgba(0,119,204,0.18);
+}
+
+/* ── Exp timeline dots ── */
+[data-theme="light"] .exp-dot { background: var(--cyan); border-color: var(--bg-void); }
+[data-theme="light"] .exp-line { background: var(--border-card); }
+
+/* ── Misc: white hardcoded card fill in timeline ── */
+[data-theme="light"] .edu-logo-ring { border-color: rgba(0,119,204,0.20); }
+[data-theme="light"] .contact-link { color: var(--text-secondary); }
+[data-theme="light"] .contact-link:hover { color: var(--cyan); }
 
 /* =============================================
    GLOBAL NOISE TEXTURE OVERLAY
@@ -181,8 +355,44 @@ nav {
   transition: transform 0.3s ease;
 }
 
-.nav-links a:hover { color: var(--cyan); }
-.nav-links a:hover::after { transform: scaleX(1); }
+/* Theme toggle button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  border-color: var(--cyan);
+  color: var(--text-primary);
+  background: var(--cyan-dim);
+}
+
+.theme-toggle-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.theme-toggle-label { display: block; }
+
+@media (max-width: 768px) {
+  .theme-toggle-label { display: none; }
+  .theme-toggle { padding: 7px 10px; }
+}
 
 /* =============================================
    WRAPPER
@@ -387,8 +597,8 @@ section {
 }
 
 .terminal-card {
-  background: var(--bg-glass2);
-  border: 1px solid var(--border-card);
+  background: #111827;
+  border: 1px solid rgba(0,229,255,0.14);
   border-radius: 12px;
   overflow: hidden;
   backdrop-filter: blur(20px);
@@ -399,8 +609,8 @@ section {
 .terminal-header {
   display: flex; align-items: center; gap: 8px;
   padding: 14px 18px;
-  background: rgba(0,229,255,0.04);
-  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(0,0,0,0.30);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .t-dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -411,7 +621,7 @@ section {
 .terminal-title {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: #6b7f9e;
   letter-spacing: 0.1em;
   margin-left: 8px;
 }
@@ -421,17 +631,18 @@ section {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   line-height: 2;
+  background: transparent;
 }
 
 .t-line { display: flex; gap: 10px; }
-.t-prompt { color: var(--cyan); opacity: 0.7; }
-.t-cmd { color: #aabbd4; }
-.t-output { color: var(--text-muted); padding-left: 20px; }
-.t-success { color: #00ff88; }
-.t-highlight { color: var(--cyan); }
+.t-prompt { color: #00e5ff; opacity: 0.8; }
+.t-cmd { color: #c8d8f0; }
+.t-output { color: #6b7f9e; padding-left: 20px; }
+.t-success { color: #00e599; }
+.t-highlight { color: #00e5ff; }
 .t-purple { color: #bb86fc; }
 .t-yellow { color: #ffd54f; }
-.t-cursor { display: inline-block; width: 8px; height: 14px; background: var(--cyan); opacity: 0.8; animation: blink 1.2s step-end infinite; vertical-align: middle; }
+.t-cursor { display: inline-block; width: 8px; height: 14px; background: #00e5ff; opacity: 0.8; animation: blink 1.2s step-end infinite; vertical-align: middle; }
 @keyframes blink { 0%,100%{opacity:0.8;} 50%{opacity:0;} }
 
 .t-spacer { height: 8px; }
@@ -1538,6 +1749,10 @@ footer {
     <li><a href="#stack">Stack</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+    <span class="theme-toggle-icon" id="themeIcon">☀️</span>
+    <span class="theme-toggle-label" id="themeLabel">Light</span>
+  </button>
 </nav>
 
 <div class="wrapper">
@@ -2290,7 +2505,36 @@ footer {
      SCRIPTS
      ============================ -->
 <script>
-/* Intersection Observer for scroll reveals */
+/* ── Theme Toggle ── */
+const html = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeLabel = document.getElementById('themeLabel');
+
+// Restore saved preference, fallback to dark
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+updateToggleUI(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateToggleUI(next);
+});
+
+function updateToggleUI(theme) {
+  if (theme === 'light') {
+    themeIcon.textContent = '🌙';
+    themeLabel.textContent = 'Dark';
+  } else {
+    themeIcon.textContent = '☀️';
+    themeLabel.textContent = 'Light';
+  }
+}
+
+/* ── Intersection Observer for scroll reveals ── */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => {
     if (el.isIntersecting) {
@@ -2301,7 +2545,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal, .reveal-group').forEach(el => observer.observe(el));
 
-/* Counter animation */
+/* ── Counter animation ── */
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
   const suffix = el.dataset.suffix || '';
@@ -2321,18 +2565,22 @@ function animateCounter(el) {
   requestAnimationFrame(update);
 }
 
-
-/* Nav scroll effect */
+/* ── Nav scroll effect ── */
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
+  const isLight = html.getAttribute('data-theme') === 'light';
   if (window.scrollY > 60) {
-    nav.style.background = 'rgba(2, 4, 8, 0.92)';
+    nav.style.background = isLight
+      ? 'rgba(240, 244, 252, 0.96)'
+      : 'rgba(2, 4, 8, 0.92)';
   } else {
-    nav.style.background = 'rgba(2, 4, 8, 0.75)';
+    nav.style.background = isLight
+      ? 'rgba(240, 244, 252, 0.85)'
+      : 'rgba(2, 4, 8, 0.75)';
   }
 }, { passive: true });
 
-/* Typing effect for terminal */
+/* ── Typing effect for terminal ── */
 function typeLines() {
   // Terminal is already populated; just add a blinking cursor effect (CSS handles it)
 }
